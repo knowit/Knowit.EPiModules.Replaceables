@@ -67,7 +67,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EPiServer.Framework.9.2.0\lib\net45\EPiServer.ApplicationModules.dll</HintPath>
     </Reference>
-    <Reference Include="EPiServer.BaseLibrary, Version=7.5.394.2, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL" />
     <Reference Include="EPiServer.Cms.Shell.UI, Version=9.2.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EPiServer.CMS.UI.Core.9.2.0\lib\net45\EPiServer.Cms.Shell.UI.dll</HintPath>
