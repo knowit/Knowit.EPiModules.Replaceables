@@ -1,0 +1,33 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Knowit EPiModules Replaceables</title>
+    <link href="/Content/bootstrap.css" rel="stylesheet"/>
+    <link href="/Content/bootstrap-theme.css" rel="stylesheet"/>
+    <link href="/Content/main.css" rel="stylesheet" />
+
+    @RenderSection("Styles", false)
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Knowit EPiModules Replaceables</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        @RenderBody()
+    </div>
+    
+
+    <script src="/Scripts/jquery-1.9.1.js" type="text/javascript"></script>
+    <script src="/Scripts/bootstrap.js" type="text/javascript"></script>
+    @RenderSection("Scripts", false)
+
+</body>
+</html>

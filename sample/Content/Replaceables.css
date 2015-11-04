@@ -1,0 +1,15 @@
+﻿.replaceables-editor {
+    margin-top: 20px;
+}
+
+.replaceables-editor th {
+    text-transform: capitalize;
+    text-align: left;
+}
+.replaceables-editor .table.table-condensed td{
+    line-height: 31px;
+}
+
+.replaceables-editor .global-cell{
+    text-align: right;
+}

@@ -1,0 +1,18 @@
+﻿@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+@model Knowit.EPiModules.Replaceables.Sample.Models.Pages.StandardPage
+
+<h2>@Html.PropertyFor(x => x.Title)</h2>
+<div class="lead">
+    @Html.PropertyFor(x => x.MainIntro)
+</div>
+<div class="row">
+    <div class="col-sm-7">
+        @Html.PropertyFor(x => x.MainBody)
+    </div>
+    <div class="col-sm-4 col-sm-offset-1">
+        @Html.PropertyFor(x => x.ContentArea)
+    </div>
+</div>

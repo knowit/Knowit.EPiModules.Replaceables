@@ -1,0 +1,81 @@
+﻿@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+<div class="replaceables-editor">
+
+    <div id="waiting-message">
+        <h2>Loading...</h2>
+    </div>
+
+    <div data-bind="with: replacablesViewModel" id="main-content" style="display: none;">
+
+        @Html.AntiForgeryToken()
+        <table class="table table-condensed">
+            <thead>
+                <tr>
+                    <th>Keys</th>
+                    <!-- ko foreach: $root.Languages -->
+                    <th data-bind="text: $data.DisplayName"></th>
+                    <!-- /ko -->
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: $root.Keys">
+                <tr>
+                    <td data-bind="text: $data"></td>
+                    <!-- ko foreach: $root.Languages -->
+                    <td data-bind="template: {name: 'replaceable', data: $root.FindReplaceable($parent, $data.LanguageCode)}"></td>
+                    <!-- /ko -->
+                    <td class="global-cell">
+                        <button data-bind="click: $root.DeleteKey" class="btn btn-danger btn-sm">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>
+                        <label for="addNewKey">Add</label>
+                    </td>
+                    <td colspan="3">
+                        <input id="addNewKey" type="text" data-bind="value: $root.NewKey" class="input-sm" />
+                        <button type="button" data-bind="click: $root.AddNewKey" class="btn btn-success btn-sm">Add</button>
+                        <span data-bind="visible: $root.AddNewKeyError() != '', text: $root.AddNewKeyError"></span>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <script type="text/html" id="replaceable">
+        <input type="text" data-bind="textInput: $data.Value" class="input-sm" />
+        <button type="button" data-bind="click: $data.Save, enable: $data.Modified" class="btn btn-success btn-sm">Save</button>
+        <button type="button" data-bind="click: $data.Reset, enable: $data.Modified" class="btn btn-default btn-sm">Reset</button>
+    </script>
+
+</div>
+
+
+@section Scripts
+{
+    <script type="text/javascript">
+        var ReplaceablesEditor = ReplaceablesEditor || {};
+
+        ReplaceablesEditor.Locale = {
+            Empty: 'Empty values are not allowed',
+            Save: 'Error occured during save',
+            Confirm: 'Are you sure you wish to delete the key "{0}"? If the key is still used in EPiServer properties it will no longer be replaced.',
+            Delete: 'Error occured during deletion of key',
+            KeyExists: 'Key "{0}" allready exists',
+            KeyMissing: 'Key must be specified',
+            KeyFormatError: 'Key can only be letters or numbers',
+        };
+    </script>
+
+    <script src="/Scripts/knockout-3.2.0.js" type="text/javascript"></script>
+    <script src="/Scripts/Replaceables/Replaceables.js" type="text/javascript"></script>
+}
+
+@section Styles{
+    <link href="/Content/Replaceables.css" rel="stylesheet" />
+}
