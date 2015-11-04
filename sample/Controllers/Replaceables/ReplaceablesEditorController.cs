@@ -26,7 +26,7 @@ namespace Knowit.EPiModules.Replaceables.Sample.Controllers
         }
 
         [Route("editor")]
-        [MenuItem("/global/cmd/edit", Text = "Replacables", Url = "/episerver/replaceables/editor")]
+        [MenuItem("/global/cms/edit", Text = "Replacables", Url = "/episerver/replaceables/editor")]
         public ActionResult Index()
         {
             return View("Editor");

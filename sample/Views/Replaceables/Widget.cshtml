@@ -25,6 +25,10 @@
         <span class="dijitIcon epi-iconInfo"></span> @Html.Raw(string.Format("Use '{0}' before and '{1}' after the key. Eg. {0}example{1}", ReplaceableHelper.SearchTagStart, ReplaceableHelper.SearchTagEnd))
     </div>
 
+    <div class="info">
+        <a href="/episerver/replaceables/editor">Replaceables editor</a>
+    </div>
+
     @foreach (var replaceable in Model)
     {
         <div class="row">
