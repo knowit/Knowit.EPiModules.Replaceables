@@ -62,16 +62,15 @@ namespace Knowit.EPiModules.Replaceables.Filters
                         var writers = filterContext.RequestContext.HttpContext.Items[requestId] as Writers;
                         if (writers != null)
                         {
-                            var StopWatch = new Stopwatch();
-                            string response = string.Empty;
-                            StopWatch.Restart();
-                            response = ReplaceableHelper.SetReplacables(writers.Builder.ToString());
-                            StopWatch.Stop();
-                            var ticksPerSecond = Stopwatch.Frequency;
-                            var ticksPerMilliSecond = ticksPerSecond/1000;
-                            var time = ((double)StopWatch.ElapsedTicks)/ticksPerMilliSecond;
+                            //var stopWatch = new Stopwatch();
+                            //stopWatch.Restart();
+                            var response = ReplaceableHelper.SetReplacables(writers.Builder.ToString());
+                            //stopWatch.Stop();
+                            //var ticksPerSecond = Stopwatch.Frequency;
+                            //var ticksPerMilliSecond = ticksPerSecond/1000;
+                            //var time = ((double)stopWatch.ElapsedTicks)/ticksPerMilliSecond;
 
-                            Log.Information(string.Format("Time to replace: {0} ms", time.ToString("F4")));
+                            //Log.Information(string.Format("Time to replace: {0} ms", time.ToString("F4")));
 
                             //Get the output up to date to where it should have been
                             writers.Output.Write(response);
